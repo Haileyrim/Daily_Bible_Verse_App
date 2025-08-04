@@ -21,8 +21,3 @@ A spiritual journaling web app that delivers a daily Bible verse and allows user
 _Add screenshots here once UI is built_
 
 ## 🛠️ How to Run Locally
-
-### 1. Clone the repo
-```bash
-git clone https://github.com/yourusername/bible-journal-app.git
-cd bible-journal-app
