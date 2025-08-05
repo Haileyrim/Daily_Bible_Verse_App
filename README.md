@@ -6,9 +6,11 @@ A spiritual journaling web app that delivers a daily Bible verse and allows user
 - 🔐 User Authentication (Login/Signup)
 - 📖 Daily Bible verse pulled from a public API
 - 📝 Journaling feature linked to the day's verse
+  Write and save journal entries with a date.
 - 📅 Calendar view to see past entries
-- 🔎 Search functionality (by keyword, verse, or date)
+- 📂 View Entries: View all previously saved entries.
 
+🔁 Full-stack: React frontend with Express backend.
 ## 🚀 Tech Stack
 - **Frontend**: React (with Hooks, Context)
 - **Backend**: Node.js + Express
