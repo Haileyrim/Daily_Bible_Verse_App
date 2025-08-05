@@ -20,8 +20,8 @@ A spiritual journaling web app that delivers a daily Bible verse and allows user
 - **Deployment**: Vercel (frontend), Render (backend), MongoDB Atlas
 
 ## 🙏 Inspiration
-- "No Jesus, no life. Know Jesus, know life."
-- This app is built for Christians who want to grow closer to God daily through His Word and personal reflection.
+"No Jesus, no life. Know Jesus, know life."
+This app is built for Christians who want to grow closer to God daily through His Word and personal reflection.
 ## 📸 Screenshots
 _Add screenshots here once UI is built_
 
