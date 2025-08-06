@@ -1,12 +1,43 @@
-// client/src/pages/Home.js
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 function Home() {
+  const [verse, setVerse] = useState(null);
+
+  const fetchVerse = () => {
+    fetch('https://labs.bible.org/api/?passage=random&type=json')
+      .then(response => response.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          setVerse(data[0]);
+        }
+      });
+  };
+
+  useEffect(() => {
+    fetchVerse();
+  }, []);
+
   return (
-    <div style={{ padding: '2rem' }}>
-      <h1>Today's Bible Verse</h1>
-      <p><strong>John 3:16</strong></p>
-      <p>For God so loved the world that he gave his one and only Son...</p>
+    <div className="container">
+      <div className="verse-card verse-fade">
+        <h1>📖 Today's Bible Verse</h1>
+        {verse ? (
+          <>
+            <p className="verse-reference">
+              {verse.bookname} {verse.chapter}:{verse.verse}
+            </p>
+            <blockquote className="verse-text">
+              "{verse.text}"
+            </blockquote>
+            <p className="encouragement">Let this truth guide your day. 💛</p>
+            <button onClick={fetchVerse} style={{ marginTop: '1.5rem' }}>
+              🔁 New Verse
+            </button>
+          </>
+        ) : (
+          <p>Loading verse...</p>
+        )}
+      </div>
     </div>
   );
 }

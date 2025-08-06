@@ -1,24 +1,68 @@
 /* App.css */
 
+/* ===== Global Variables ===== */
 :root {
-  --primary-color: #4b6cb7;
-  --secondary-color: #182848;
-  --accent-color: #fdd835;
-  --background-color: #f4f6f8;
-  --card-bg: #ffffff;
-  --text-color: #333333;
-  --border-radius: 10px;
-  --shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  --primary-color: #4b6cb7;          /* Main button/nav color */           
+  --secondary-color: #182848;        /* Hover/secondary color */
+  --accent-color: #fdd835;           /* Highlight/verse border color */
+  --background-color: #f4f6f8;       /* Overall page background */
+  --card-bg: #ffffff;                /* Card and container background */
+  --text-color: #060505;             /* Default text color */
+  --border-radius: 10px;               /* Rounded corners */
+  --shadow: 0 4px 10px rgba(134, 11, 11, 0.1);   /* Soft shadow for cards */
 }
 
+
+
+/* Styles for Home page */
+.verse-card {
+  background: var(--card-bg);
+  border-left: 8px solid var(--accent-color);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+}
+
+.verse-card:hover {
+  transform: translateY(-4px);
+}
+
+.verse-reference {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.verse-text {
+  font-size: 1.1rem;
+  font-style: italic;
+  margin: 1rem 0;
+  color: #333;
+  line-height: 1.6;
+}
+
+.encouragement {
+  margin-top: 1.5rem;
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+
+
+/* ===== Global Page Setup ===== */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Inter', 'Segoe UI', sans-serif;
-  background-color: var(--background-color);
-  color: var(--text-color);
+  background-color: var(--background-color);    /* Applies background */
+  color: var(--text-color);                     /* Sets text color */
 }
 
+
+
+/* ===== Top Navigation Bar ===== */
 nav {
   background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
   padding: 1rem 2rem;
@@ -27,17 +71,23 @@ nav {
   gap: 2rem;
 }
 
+
+
+/* Navigation links */
 nav a {
-  color: white;
+  color: rgb(225, 130, 130);    /* Link color */
   font-weight: 500;
   text-decoration: none;
   transition: opacity 0.3s ease;
 }
 
 nav a:hover {
-  opacity: 0.8;
+  opacity: 0.8;   /* Slight fade on hover */
 }
 
+
+
+/* ===== General Layout Wrapper ===== */
 .container {
   max-width: 900px;
   margin: 2rem auto;
@@ -47,11 +97,17 @@ nav a:hover {
   box-shadow: var(--shadow);
 }
 
+
+
+/* ===== Headings ===== */
 h1, h2, h3 {
   margin-top: 0;
-  color: var(--primary-color);
+  color: var(--primary-color);    /* Blue heading color */
 }
 
+
+
+/* ===== Input Fields and Textareas ===== */
 input,
 textarea {
   width: 100%;
@@ -64,11 +120,14 @@ textarea {
   resize: vertical;
 }
 
+
+
+/* ===== Buttons ===== */
 button {
-  background-color: var(--primary-color);
-  color: white;
+  background-color: #ebe9e9;
+  color: #060505;
   border: none;
-  padding: 0.75rem 1.5rem;
+  padding: 0.50rem 0.5rem;
   font-size: 1rem;
   border-radius: var(--border-radius);
   cursor: pointer;
@@ -80,6 +139,9 @@ button:hover {
   background-color: var(--secondary-color);
 }
 
+
+
+/* ===== Journal Entry Card ===== */
 .entry-card {
   background-color: #fdfdfd;
   padding: 1.2rem;
@@ -88,6 +150,9 @@ button:hover {
   box-shadow: var(--shadow);
 }
 
+
+
+/* ===== Responsive Styling for Mobile ===== */
 @media (max-width: 600px) {
   nav {
     flex-direction: column;
@@ -98,4 +163,15 @@ button:hover {
     margin: 1rem;
     padding: 1.5rem;
   }
+}
+
+
+/* ===== Entries part ===== */
+ul li {
+  background-color: #dcd4e9;
+  transition: box-shadow 0.2s;
+}
+
+ul li:hover {
+  box-shadow: 0 2px 8px rgba(131, 12, 12, 0.1);
 }
