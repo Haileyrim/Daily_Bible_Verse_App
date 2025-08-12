@@ -1,26 +1,20 @@
-// client/src/pages/Journal.js
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Journal() {
   const [verse, setVerse] = useState(null);
   const [entry, setEntry] = useState('');
   const [saved, setSaved] = useState(false);
 
-  const fetchVerse = () => {
-    fetch('https://labs.bible.org/api/?passage=random&type=json')
-      .then(response => response.json())
-      .then(data => {
-        if (data && data.length > 0) {
-          setVerse(data[0]);
-        }
-      });
-  };
-
   useEffect(() => {
-    fetchVerse();
+    const savedVerse = localStorage.getItem('dailyVerse');
+    if (savedVerse) {
+      setVerse(JSON.parse(savedVerse)); // Load same verse as Home
+    }
   }, []);
 
   const handleSave = () => {
+    if (!verse) return;
+
     const journal = {
       verse: `${verse.bookname} ${verse.chapter}:${verse.verse}`,
       text: verse.text,
@@ -28,7 +22,6 @@ function Journal() {
       date: new Date().toISOString(),
     };
 
-    // Save to localStorage
     const existing = JSON.parse(localStorage.getItem('journalEntries')) || [];
     localStorage.setItem('journalEntries', JSON.stringify([journal, ...existing]));
 

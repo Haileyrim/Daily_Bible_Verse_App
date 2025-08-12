@@ -9,12 +9,18 @@ function Home() {
       .then(data => {
         if (data && data.length > 0) {
           setVerse(data[0]);
+          localStorage.setItem('dailyVerse', JSON.stringify(data[0])); // Save verse
         }
       });
   };
 
   useEffect(() => {
-    fetchVerse();
+    const savedVerse = localStorage.getItem('dailyVerse');
+    if(savedVerse) {
+      setVerse(JSON.parse(savedVerse)); //Load saved veerse first
+    } else {
+      fetchVerse();
+    }
   }, []);
 
   return (

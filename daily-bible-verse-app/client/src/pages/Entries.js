@@ -1,4 +1,3 @@
-// client/src/pages/Entries.js
 import React, { useEffect, useState } from 'react';
 
 function Entries() {
